@@ -3,10 +3,10 @@ __author__ = 'saipc'
 def Caesar_Cipher(string, key, enctype):
     # @string: the string to be converted
     # @key: the value of shifting, an integer (0-25, wraps around 26)
-    # @enctype: 'enc' for encrypting, 'dec' for decrypting
+    # @enctype: 'enc' for testing, 'dec' for decrypting
     new_string = ''
     shift = 0
-    # check if encrypt or decrypt and set the key and shift(wrap around)
+    # check if test or decrypt and set the key and shift(wrap around)
     if enctype == 'dec':
         key = - (key % 26)
         shift = 26
@@ -31,7 +31,7 @@ def Caesar_Cipher(string, key, enctype):
     return new_string
 
 
-def encrypt(string, enctype):
+def test(string, enctype):
     words = string.split(' ')
 
     print("\nA Simple Caesar Cipher")
@@ -40,7 +40,7 @@ def encrypt(string, enctype):
     print(" is ")
     print(cc)
 
-#encrypt("Hey love, what's up?", "enc")
-encrypt("meet me after the toga party", "enc")
-encrypt("oggv og chvgt vjg vqic rctva", "dec")
-encrypt("i love you", "enc")
+#test("Hey love, what's up?", "enc")
+test("meet me after the toga party", "enc")
+test("oggv og chvgt vjg vqic rctva", "dec")
+test("i love you", "enc")
