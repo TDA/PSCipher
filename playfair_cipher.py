@@ -1,4 +1,5 @@
 __author__ = 'saipc'
+# Note to self: I always use snake_casing for Python, and camelCasing for most other languages (no pun intended)
 from itertools import chain
 class PlayFairCipher:
     """ Playfair Cipher using multi-dimension matrix
@@ -29,6 +30,10 @@ class PlayFairCipher:
         self.matrix = [alpha_set[i:i+5] for i in xrange(0,25,5)]
 
     def preformat_plaintext(self, plaintext):
+        """
+        :param plaintext: The plaintext to be encoded
+        :return: a set of digrams that can be used to encode the plaintext
+        """
         self.plaintext = plaintext.replace('j', 'i') # replace all j with i
         digram = ''
         charset = []
@@ -61,7 +66,27 @@ class PlayFairCipher:
         print ("The plain text was '" + str(self.plaintext) + "'")
         print ("The preformatted plain text digrams were '" + str(self.charset) + "'")
 
+    def find_indices(self, char):
+        # some shenanigans for matrix traversal in python
+        # this is the same as using two for loops in Java
+        # this is why you should choose the best tool for any program
+        # clearly python isnt suited for matrices, unless you use numPy
+        # and even with numPy, not for ragged arrays
+        """
+        :param char: the character to be found
+        :return: indices where @char is found
+        The same program in Java would be as simple as(hopefully, assuming
+        we have used arraylists)
+        for (int i = 0; i < 5; i++) {
+            int j = self.matrix[i].indexOf(char);
+            }
+        """
+        for i, row in enumerate(self.matrix):
+            for j, value in enumerate(row):
+                if(char == value):
+                    return i,j
 
+    def gene
 
 pfc = PlayFairCipher("monarchy")
 pfc.generate_matrix()
