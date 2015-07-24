@@ -41,7 +41,8 @@ class PlayFairCipher:
         """
         self.plaintext = plaintext.replace("j", "i") # replace all j with i
         # remove/strip all special characters and spaces
-        self.plaintext = re.sub(r"[-_)(*&^\\/%$#@!\"\' ]", "", self.plaintext)
+        # this uses regular expressions, and can be avoided for basic classes/assignments
+        self.plaintext = re.sub(r"[-_)(*&^\\/%$#@!\"\' \?,\.\:\;]", "", self.plaintext)
         charset = []
         i = 0
         # collect all the two letters(digrams) and store them in a list
@@ -51,8 +52,8 @@ class PlayFairCipher:
             first_letter = self.plaintext[i]
             # maintain spaces
 
-            if ((i + 1) >= len(self.plaintext)):
-                second_letter = "x"
+            if (i + 1) >= len(self.plaintext):
+                second_letter = self.filler
             else:
                 second_letter = self.plaintext[i+1]
 
@@ -82,10 +83,10 @@ class PlayFairCipher:
         print("The generated cipher text is " + str(self.ciphertext))
 
     def find_indices(self, char):
-        # some shenanigans for matrix traversal in python
+        # some shenanigans for matrix traversal in Python
         # this is the same as using two for loops in Java
         # this is why you should choose the best tool for any program
-        # clearly python isnt suited for matrices, unless you use numPy
+        # clearly Python isn't suited for matrices, unless you use numPy
         # and even with numPy, not for ragged arrays
         # EDIT: you can still use two for loops, just not suited for
         # initializing matrices
@@ -134,19 +135,20 @@ class PlayFairCipher:
 
 pfc = PlayFairCipher("monarchy")
 pfc.generate_matrix()
-pfc.preformat_plaintext("hseaaroonmu was an idiot")
+pfc.preformat_plaintext("the big wheel")
 pfc.generate_cipher_text()
 pfc.print_cipher()
 
 pfc2 = PlayFairCipher("keyword")
 pfc2.generate_matrix()
-pfc2.preformat_plaintext("whydontyou")
+pfc2.preformat_plaintext("why don't you?")
 pfc2.generate_cipher_text()
 pfc2.print_cipher()
 
-pfc3 = PlayFairCipher("keyword")
+#no keyword supplied, uses default "keyword"
+pfc3 = PlayFairCipher()
 pfc3.generate_matrix()
-pfc3.preformat_plaintext("yieaesvkez")
+pfc3.preformat_plaintext("yi eae, sv:kez")
 pfc3.generate_cipher_text()
 pfc3.print_cipher()
 
