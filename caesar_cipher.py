@@ -1,6 +1,9 @@
 __author__ = 'saipc'
 
 def Caesar_Cipher(string, key, enctype):
+    # @string: the string to be converted
+    # @key: the value of shifting, an integer (0-25, wraps around 26)
+    # @enctype: 'enc' for encrypting, 'dec' for decrypting
     new_string = ''
     shift = 0
     # check if encrypt or decrypt and set the key and shift(wrap around)
@@ -40,3 +43,4 @@ def encrypt(string, enctype):
 #encrypt("Hey love, what's up?", "enc")
 encrypt("meet me after the toga party", "enc")
 encrypt("oggv og chvgt vjg vqic rctva", "dec")
+encrypt("i love you", "enc")
