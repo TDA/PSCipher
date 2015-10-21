@@ -148,7 +148,8 @@ pfc2.print_cipher()
 #no keyword supplied, uses default "keyword"
 pfc3 = PlayFairCipher()
 pfc3.generate_matrix()
-pfc3.preformat_plaintext("yi eae, sv:kez")
+pfc3.preformat_plaintext("EOY XF, AY VMU M UKFNY TOY YF UFWHYKAXZ EAZZHN. UFWHYKAXZ ZNMXPHN. UFWHYKAXZ EHMOYACOI. VH'JH EHHX CFTOUHP FX VKMY'U AX CNFXY FC OU. EOY VH KMJHX'Y EHHX IFFQAXZ MY VKMY'U MEFJH OU.".lower())
 pfc3.generate_cipher_text()
 pfc3.print_cipher()
+
 

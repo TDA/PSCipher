@@ -35,12 +35,18 @@ def test(string, enctype):
     words = string.split(' ')
 
     print("\nA Simple Caesar Cipher")
-    cc = Caesar_Cipher(string, 2, enctype)
-    print(string)
-    print(" is ")
-    print(cc)
+    for i in xrange(1,27):
+        cc = Caesar_Cipher(string, i, enctype)
+        print(string)
+        print(" is ")
+        print(cc)
+        print "\n"
 
 #test("Hey love, what's up?", "enc")
-test("meet me after the toga party", "enc")
-test("oggv og chvgt vjg vqic rctva", "dec")
-test("i love you", "enc")
+#test("meet me after the toga party", "enc")
+#test("oggv og chvgt vjg vqic rctva", "dec")
+#test("i love you", "enc")
+print Caesar_Cipher("middle-Outz", 2, "enc")
+
+#test("EOY XF, AY VMU M UKFNY TOY YF UFWHYKAXZ EAZZHN. UFWHYKAXZ ZNMXPHN. UFWHYKAXZ EHMOYACOI. VH'JH EHHX CFTOUHP FX VKMY'U AX CNFXY FC OU. EOY VH KMJHX'Y EHHX IFFQAXZ MY VKMY'U MEFJH OU.",'dec')
+
