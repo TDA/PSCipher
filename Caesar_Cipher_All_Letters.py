@@ -19,8 +19,8 @@ def Caesar_Cipher(string, key, enctype):
         plaintext_ascii_no = ord(char)
         if(97 <= plaintext_ascii_no <= 122 or 65 <= plaintext_ascii_no <= 90):
             cipher_ascii_no = plaintext_ascii_no + key
-            if (97 <= plaintext_ascii_no <= 122 and cipher_ascii_no > 122)\
-                    or (65 <= plaintext_ascii_no <= 90 and cipher_ascii_no > 90):
+            if (97 <= plaintext_ascii_no <= 122 and (cipher_ascii_no > 122 or cipher_ascii_no < 97))\
+                    or (65 <= plaintext_ascii_no <= 90 and (cipher_ascii_no > 90 or cipher_ascii_no < 65)):
                 # if the numbers ran out, wrap them
                 cipher_ascii_no = cipher_ascii_no + shift
             # otherwise they can be just written back

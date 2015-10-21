@@ -22,9 +22,10 @@ def Caesar_Cipher(string, key, enctype):
             new_string += char
             continue
         cipher_ascii_no = plaintext_ascii_no + key
-        if ((90 < cipher_ascii_no < 97) or (cipher_ascii_no > 122)):
-            # if the numbers ran out, wrap them
-            cipher_ascii_no = cipher_ascii_no + shift
+        if (97 <= plaintext_ascii_no <= 122 and (cipher_ascii_no > 122 or cipher_ascii_no < 97))\
+                    or (65 <= plaintext_ascii_no <= 90 and (cipher_ascii_no > 90 or cipher_ascii_no < 65)):
+                # if the numbers ran out, wrap them
+                cipher_ascii_no = cipher_ascii_no + shift
         # otherwise they can be just written back
         char = chr(cipher_ascii_no)
         new_string += char
@@ -44,7 +45,7 @@ def test(string, enctype):
 
 #test("Hey love, what's up?", "enc")
 #test("meet me after the toga party", "enc")
-#test("oggv og chvgt vjg vqic rctva", "dec")
+test("oggv og chvgt vjg vqic rctva", "dec")
 #test("i love you", "enc")
 print Caesar_Cipher("middle-Outz", 2, "enc")
 
